@@ -1,6 +1,7 @@
 <?php
-    include('header.php');
     session_start();
+    include('header.php');
+    require_once('db_connect.php');
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +26,7 @@
 
     </head>
 
-    <body style="background-color: #C0C0C0;">
+    <body style="background-color: #75AAEF;">
         
         <div class="row">
 
@@ -34,16 +35,14 @@
             </div>
 
             <div class="col-10">
-                <h2 class="pt-2 shadow">Mutual Fund Details</h2>
+                <h2 class="pt-2 shadow-lg rounded">Mutual Fund Details</h2>
 
                 <div class="row">
                     <div  class="col-4">
-                        <form method="GET" action="">
-                            <label class="form-label">Your Name:</label>
-                            <input type="text" class="form-control w-75" name="name"><br>
-                            <label for="search" class="form-label">Mutual Fund Name:</label>
-                            <input type="text" class="form-control w-75" name="search" id="search" required><br>
-                            <button type="submit" value="search" class="btn btn-primary">Search</button>
+                        <form method="GET" action=""><br>
+                            <label for="search" class="form-label">Mutual Fund Name :</label>
+                            <input type="text" class="form-control w-75" name="search" id="search" placeholder="Ex. Quant Small" required><br>
+                            <button type="submit" value="search" class="btn btn-success">Search</button>
                         </form>
                     </div>
                     <div class="col-8">
@@ -119,7 +118,7 @@
                                 {
                                     $schemeName = $fund['schemeName'];
                                     $schemeCode = $fund['schemeCode'];
-                                    echo '<li><a href="https://api.mfapi.in/mf/'. $schemeCode . '/latest" style="text-decoration: none;" class="text-secondary">' . $schemeName . ' - ' . $schemeCode . '</a></li>';
+                                    echo '<li><a href="https://api.mfapi.in/mf/'. $schemeCode . '/latest" style="text-decoration: none;" class="text-black">' . $schemeName . ' - ' . $schemeCode . '</a></li>';
                                 }
                                 echo '</ul>';
 
@@ -134,7 +133,7 @@
                             else
                             {
                                 // Display the top 20 mutual funds if no search is performed
-                                echo '<h3>Top 20 Mutual Funds:</h3>';
+                                echo '<h3>Some Mutual Funds :</h3>';
                                 $first_20_mutual_funds = array_slice($data_array, 0, 20);
 
                                 echo '<ul>';
@@ -142,7 +141,7 @@
                                 {
                                     $schemeName = $fund['schemeName'];
                                     $schemeCode = $fund['schemeCode'];
-                                    echo '<li><a href="https://api.mfapi.in/mf/'. $schemeCode . '/latest" style="text-decoration: none;" class="text-secondary">' . $schemeName . ' - ' . $schemeCode . '</a></li>';
+                                    echo '<li><a href="https://api.mfapi.in/mf/'. $schemeCode . '/latest" style="text-decoration: none;" class="text-black">' . $schemeName . ' - ' . $schemeCode . '</a></li>';
                                 }
                                 echo '</ul>';
                             }

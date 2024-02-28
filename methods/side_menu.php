@@ -22,7 +22,7 @@
 
     <div class="container-fluid">
         <div class="row flex-nowrap">
-            <div class="px-sm-1 px-0 bg-dark">
+            <div class="px-sm px-0 bg-dark">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <p class="fs-3 d-none d-sm-inline text-center fw-bold">Menu</p><br>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
